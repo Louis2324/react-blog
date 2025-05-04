@@ -9,11 +9,11 @@ const Navbar = () => {
           <a href="/">Home</a>
           <a
             href="/create"
-            // style={{
-            //   color: "White",
-            //   backgroundColor: "#f1356d",
-            //   borderRadius: "8px",
-            // }}
+            style={{
+              color: "White",
+              backgroundColor: "#f1356d",
+              borderRadius: "8px",
+            }}
           >
             New Blog
           </a>
