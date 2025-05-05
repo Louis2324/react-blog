@@ -2,15 +2,69 @@
   "blogs": [
     {
       "title": "My new Website",
-      "content": "Just launched my new website! It's got a cool homepage, animations, and a blog section. Still working on dark mode!",
+      "body": "Just launched my new website! It's got a cool homepage, animations, and a blog section. Still working on dark mode!",
       "author": "mario",
-      "id": 1
+      "id": "1"
     },
     {
       "title": "Welcome Party",
-      "content": "We're throwing a welcome party this Saturday! Drinks, games, and mushroom pizza. Everyone's invited!",
+      "body": "We're throwing a welcome party this Saturday! Drinks, games, and mushroom pizza. Everyone's invited!",
       "author": "luigi",
-      "id": 2
+      "id": "2"
+    },
+    {
+      "id": "079c",
+      "title": "Lorem ",
+      "body": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum ",
+      "author": "Anonymous"
+    },
+    {
+      "id": "f22f",
+      "title": "Sasha ",
+      "body": "Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body  Body Body Body Body Body Body Body Body Body Body Body Body ",
+      "author": "luigi"
+    },
+    {
+      "id": "e60e",
+      "title": "Sasha ",
+      "body": "Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body  Body Body Body Body Body Body Body Body Body Body Body Body ",
+      "author": "luigi"
+    },
+    {
+      "id": "0d7f",
+      "title": "Sasha ",
+      "body": "Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body  Body Body Body Body Body Body Body Body Body Body Body Body ",
+      "author": "luigi"
+    },
+    {
+      "id": "0c83",
+      "title": "Sasha ",
+      "body": "Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body  Body Body Body Body Body Body Body Body Body Body Body Body ",
+      "author": "luigi"
+    },
+    {
+      "id": "1fa9",
+      "title": "Sasha ",
+      "body": "Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body  Body Body Body Body Body Body Body Body Body Body Body Body ",
+      "author": "luigi"
+    },
+    {
+      "id": "05ec",
+      "title": "Sasha ",
+      "body": "Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body Body  Body Body Body Body Body Body Body Body Body Body Body Body ",
+      "author": "luigi"
+    },
+    {
+      "id": "262a",
+      "title": "Birds",
+      "body": "Birds are flying things with feathers that come with many colors",
+      "author": "luigi"
+    },
+    {
+      "id": "7fef",
+      "title": "hello Ninjas @",
+      "body": "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2211222",
+      "author": "luigi"
     }
   ]
 }
