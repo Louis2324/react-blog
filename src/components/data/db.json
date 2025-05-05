@@ -1,0 +1,16 @@
+{
+  "blogs": [
+    {
+      "title": "My new Website",
+      "content": "Lorem ipsum ...",
+      "author": "mario",
+      "id": 1
+    },
+    {
+      "title": "Welcome Party",
+      "content": "Lorem ipsum ...",
+      "author": "luigi",
+      "id": 2
+    }
+  ]
+}
