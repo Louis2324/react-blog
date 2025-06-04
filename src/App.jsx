@@ -14,7 +14,7 @@ const toggleTheme = () => {
   }
 };
 
-function App() { 
+function App() {
   return (
     <Router>
       <div className="App">
@@ -27,7 +27,12 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
-        <button className="theme-toggle" onClick={() => {toggleTheme()}}></button>
+        <button
+          className="theme-toggle"
+          onClick={() => {
+            toggleTheme();
+          }}
+        ></button>
       </div>
     </Router>
   );

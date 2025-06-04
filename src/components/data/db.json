@@ -1,12 +1,6 @@
 {
   "blogs": [
     {
-      "title": "My new Website",
-      "body": "Just launched my new website! It's got a cool homepage, animations, and a blog section. Still working on dark mode!",
-      "author": "mario",
-      "id": "1"
-    },
-    {
       "title": "Welcome Party",
       "body": "We're throwing a welcome party this Saturday! Drinks, games, and mushroom pizza. Everyone's invited!",
       "author": "luigi",

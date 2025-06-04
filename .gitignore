@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+node_modules
+dojo-blog-backend/.env
+dojo-blog-backend/node_modules
