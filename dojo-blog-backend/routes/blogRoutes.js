@@ -8,15 +8,42 @@ import {
 } from "../controllers/blogControllers.js";
 
 import { validate } from "../middleware/validate.js";
-import { BlogSchema ,updateBlogSchema } from "../validators/blogValidator.js";
+import { BlogSchema, updateBlogSchema } from "../validators/blogValidator.js";
 import { idParamSchema } from "../validators/paramValidator.js";
+import {
+  authenticateUser,
+  authorizeRoles,
+} from "../middleware/authMiddleware.js";
 
 const router = express.Router();
-router.get("/", getAllBlogs);
 
-router.get("/:id",validate(idParamSchema,"params") ,getBlog);
-router.post("/", validate(BlogSchema),createBlog);
-router.put("/:id",validate(idParamSchema),validate(updateBlogSchema), updateBlog);
-router.delete("/:id", deleteBlog);
+//public routes
+router.get("/", getAllBlogs);
+router.get("/:id", validate(idParamSchema, "params"), getBlog);
+
+//protected routes
+router.post(
+  "/",
+  authenticateUser,
+  authorizeRoles("writer", "admin"),
+  validate(BlogSchema),
+  createBlog
+);
+
+router.put(
+  "/:id",
+  authenticateUser,
+  authorizeRoles("writer", "admin"),
+  validate(idParamSchema),
+  validate(updateBlogSchema),
+  updateBlog
+);
+
+router.delete("/:id",
+  authenticateUser,
+  authorizeRoles("admin"),
+  validate(idParamSchema), 
+  deleteBlog
+);
 
 export default router;
