@@ -34,7 +34,7 @@ router.put(
   "/:id",
   authenticateUser,
   authorizeRoles("writer", "admin"),
-  validate(idParamSchema),
+  validate(idParamSchema,"params"),
   validate(updateBlogSchema),
   updateBlog
 );

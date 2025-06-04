@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 
 const UserSchema = mongoose.Schema(
   {
-    username: {
+    name: {
       type: String,
       required: [true, "Username is required"],
       unique: true,
@@ -27,14 +27,14 @@ const UserSchema = mongoose.Schema(
 );
 
 UserSchema.pre("save", async function () {
-  if (!this.Modified("password")) return;
-  const salt = bcrypt.genSalt(10);
+  if (!this.isModified("password")) return;
+  const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
 });
 
-UserSchema.method.comparePassword = async function (enteredPassword) {
+UserSchema.methods.comparePassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
 
-const User = mongoose.model("User",UserSchema);
+const User = mongoose.model("User", UserSchema);
 export default User;

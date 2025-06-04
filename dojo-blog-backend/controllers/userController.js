@@ -1,11 +1,11 @@
-import User from "../models/User";
+import User from "../models/User.js";
 import bcrypt from "bcrypt";
-import { createJWT } from "../utils/jwtutil";
+import { createJWT } from "../utils/jwtutil.js";
 
 export const registerUser = async (req, res) => {
   const { name, password, email, role } = req.body;
   const existingUser = await User.findOne({ email });
-  if (!existingUser) {
+  if (existingUser) {
     return res.status(400).json({ message: "Email already in use" });
   }
   const user = await User.create({ name, password, email, role });
