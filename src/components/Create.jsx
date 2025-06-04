@@ -13,7 +13,7 @@ const Create = () => {
     const blog = { title, body, author };
     setIsPending(true);
     setTimeout(() => {
-      fetch("http://localhost:4000/api/blogs", {
+      fetch("http://localhost:4000/api/blogs/", {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(blog),
