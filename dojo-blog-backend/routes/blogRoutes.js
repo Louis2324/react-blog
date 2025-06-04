@@ -7,11 +7,16 @@ import {
   deleteBlog,
 } from "../controllers/blogControllers.js";
 
+import { validate } from "../middleware/validate.js";
+import { BlogSchema ,updateBlogSchema } from "../validators/blogValidator.js";
+import { idParamSchema } from "../validators/paramValidator.js";
+
 const router = express.Router();
 router.get("/", getAllBlogs);
-router.get("/:id", getBlog);
-router.post("/", createBlog);
-router.put("/:id",updateBlog)
+
+router.get("/:id",validate(idParamSchema,"params") ,getBlog);
+router.post("/", validate(BlogSchema),createBlog);
+router.put("/:id",validate(idParamSchema),validate(updateBlogSchema), updateBlog);
 router.delete("/:id", deleteBlog);
 
 export default router;
