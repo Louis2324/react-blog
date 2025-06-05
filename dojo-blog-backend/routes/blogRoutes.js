@@ -34,15 +34,16 @@ router.put(
   "/:id",
   authenticateUser,
   authorizeRoles("writer", "admin"),
-  validate(idParamSchema,"params"),
+  validate(idParamSchema, "params"),
   validate(updateBlogSchema),
   updateBlog
 );
 
-router.delete("/:id",
+router.delete(
+  "/:id",
   authenticateUser,
-  authorizeRoles("admin"),
-  validate(idParamSchema), 
+  authorizeRoles("writer", "admin"),
+  validate(idParamSchema),
   deleteBlog
 );
 
