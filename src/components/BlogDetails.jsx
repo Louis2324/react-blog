@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate , Link } from "react-router-dom";
 import useAxios from "./useAxios";
 import API from "../api/Axios.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
@@ -38,6 +38,11 @@ const BlogDetails = () => {
           {canDelete(blog, user) && (
             <button onClick={handleDelete}>Delete</button>
           )}
+          {canDelete(blog, user) && (
+  <Link to={`/edit/${blog._id}`}>
+    <button>Edit</button>
+  </Link>
+)}
         </article>
       )}
     </div>
