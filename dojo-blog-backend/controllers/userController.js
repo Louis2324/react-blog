@@ -10,7 +10,15 @@ export const registerUser = async (req, res) => {
   }
   const user = await User.create({ name, password, email, role });
   const token = createJWT(user);
-  res.status(201).json({ token });
+  res.status(201).json({
+    user: {
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+    },
+    token,
+  });
 };
 
 export const loginUser = async (req, res) => {
@@ -20,5 +28,10 @@ export const loginUser = async (req, res) => {
     return res.status(401).json({ message: "Invalid Credentials" });
   }
   const token = createJWT(user);
-  res.status(200).json({token});
+  res.status(200).json({ user: {
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+    }, token });
 };
