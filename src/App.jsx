@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Create from "./components/Create.jsx";
 import BlogDetails from "./components/BlogDetails.jsx";
 import NotFound from "./components/NotFound.jsx";
-
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
 const toggleTheme = () => {
   const currentTheme = document.body.getAttribute("data-theme");
@@ -24,7 +24,15 @@ function App() {
         <div className="content">
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route exact path="/create" element={<Create />} />
+            <Route
+              exact
+              path="/create"
+              element={
+                <ProtectedRoute allowedRoles={["writer", "admin"]}>
+                  <Create />
+                </ProtectedRoute>
+              }
+            />
             <Route exact path="/blogs/:id" element={<BlogDetails />} />
             <Route exact path="/register" element={<LoginSignUp />} />
             <Route path="*" element={<NotFound />} />
