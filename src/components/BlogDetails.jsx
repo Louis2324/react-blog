@@ -1,7 +1,8 @@
-import { useParams, useNavigate , Link } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import useAxios from "./useAxios";
 import API from "../api/Axios.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 const BlogDetails = () => {
   const { id } = useParams();
@@ -36,12 +37,18 @@ const BlogDetails = () => {
           <div>{blog.body}</div>
           <small>Written by {blog.author.name}</small>
           {canDelete(blog, user) && (
-            <button onClick={handleDelete}>Delete</button>
+            <button onClick={handleDelete}>
+              <FaTrash /> Delete
+            </button>
           )}
           {canDelete(blog, user) && (
-              <Link to={`/edit/${blog._id}`}>
-               <button>Edit</button>
-              </Link>)}
+            <Link to={`/edit/${blog._id}`}>
+              <button>
+                <FaEdit />
+                Edit
+              </button>
+            </Link>
+          )}
         </article>
       )}
     </div>

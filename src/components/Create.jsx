@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../api/Axios.jsx";
+import { FaPlus } from "react-icons/fa";
 
 const Create = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -53,7 +54,12 @@ const Create = () => {
           <strong>Author:</strong> {author}
         </p>
 
-        {!isPending && <button>Add Blog</button>}
+        {!isPending && (
+          <button>
+            {" "}
+            Add Blog <FaPlus />
+          </button>
+        )}
         {isPending && <button disabled>Adding Blog...</button>}
       </form>
     </div>

@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import API from "../api/Axios";
 import { useAuth } from "../context/AuthContext";
+import { FaEdit } from "react-icons/fa";
 
 const EditBlog = () => {
   const { id } = useParams();
@@ -45,7 +46,9 @@ const EditBlog = () => {
         <input value={title} onChange={(e) => setTitle(e.target.value)} />
         <label>Blog Body:</label>
         <textarea value={body} onChange={(e) => setBody(e.target.value)} />
-        <button>Update Blog</button>
+        <button>
+          Update Blog <FaEdit />{" "}
+        </button>
       </form>
     </div>
   );

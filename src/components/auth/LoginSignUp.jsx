@@ -2,6 +2,7 @@ import { useAuth } from "../../context/AuthContext.jsx";
 import "./loginSignUp.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaSignInAlt, FaUserPlus } from "react-icons/fa";
 
 const LoginSignUp = () => {
   const [action, setAction] = useState("Login");
@@ -20,8 +21,8 @@ const LoginSignUp = () => {
         ? "http://localhost:4000/api/users/login"
         : "http://localhost:4000/api/users/register";
 
-    const payload = action === "Login"
-    ? { email, password } : { name, email, password };
+    const payload =
+      action === "Login" ? { email, password } : { name, email, password };
 
     try {
       const res = await fetch(endpoint, {
@@ -51,7 +52,11 @@ const LoginSignUp = () => {
       </div>
 
       <div className="inputs">
-        <form onSubmit={handleSubmit} autoComplete="on" style={{ width: "100%" }}>
+        <form
+          onSubmit={handleSubmit}
+          autoComplete="on"
+          style={{ width: "100%" }}
+        >
           {action === "Login" ? null : (
             <div className="input">
               <input
@@ -95,19 +100,19 @@ const LoginSignUp = () => {
               className={action === "Login" ? "submit gray" : "submit"}
               onClick={() => setAction("SignUp")}
             >
-              Sign Up
+              <FaUserPlus />
             </div>
             <div
               className={action === "SignUp" ? "submit gray" : "submit"}
               onClick={() => setAction("Login")}
             >
-              Login
+              <FaSignInAlt />
             </div>
           </div>
 
           <div className="submit-container">
             <button type="submit" className="submit">
-              {action === "Login" ? "Login Now" : "Register Now"}
+              {action === "Login" ? "Login " : "Register "}
             </button>
           </div>
         </form>
