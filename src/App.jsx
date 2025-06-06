@@ -1,9 +1,11 @@
 import Navbar from "./components/Navbar.jsx";
 import Home from "./components/Home.jsx";
+import LoginSignUp from "./components/auth/LoginSignUp.jsx";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Create from "./components/Create.jsx";
 import BlogDetails from "./components/BlogDetails.jsx";
 import NotFound from "./components/NotFound.jsx";
+
 
 const toggleTheme = () => {
   const currentTheme = document.body.getAttribute("data-theme");
@@ -24,6 +26,7 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route exact path="/create" element={<Create />} />
             <Route exact path="/blogs/:id" element={<BlogDetails />} />
+            <Route exact path="/register" element={<LoginSignUp />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
