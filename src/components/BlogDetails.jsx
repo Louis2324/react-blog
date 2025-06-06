@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import useAxios from "./useAxios";
 import API from "../api/Axios.jsx";
+import { useAuth } from "../context/AuthContext.jsx";
 
 const BlogDetails = () => {
   const { id } = useParams();
@@ -16,6 +17,15 @@ const BlogDetails = () => {
       console.err("Failed to delete : ", err.message);
     }
   };
+
+  const { user } = useAuth();
+  const canDelete = (blog, user) => {
+    if (!user || !blog || !blog.author) return false;
+    if (user.role === "admin") return true;
+    if (user.role === "writer" && user._id === blog.author._id) return true;
+    return false;
+  };
+
   return (
     <div className="blog-details">
       {isPending && <div>Loading...</div>}
@@ -25,7 +35,9 @@ const BlogDetails = () => {
           <h2>{blog.title}</h2>
           <div>{blog.body}</div>
           <small>Written by {blog.author.name}</small>
-          <button onClick={handleDelete}>Delete</button>
+          {canDelete(blog, user) && (
+            <button onClick={handleDelete}>Delete</button>
+          )}
         </article>
       )}
     </div>
