@@ -1,12 +1,14 @@
 import Blog from "../models/Blog.js";
 
 export const getAllBlogs = async (req, res) => {
-  const blogs = await Blog.find().sort({ createdAt: -1 });
+  const blogs = await Blog.find()
+    .sort({ createdAt: -1 })
+    .populate("author", "name");
   res.status(200).json(blogs);
 };
 
 export const getBlog = async (req, res) => {
-  const blog = await Blog.findById(req.params.id);
+  const blog = await Blog.findById(req.params.id).populate("author", "name");
   if (!blog) return res.status(404).json({ msg: "Blog not found" });
   res.status(200).json(blog);
 };
