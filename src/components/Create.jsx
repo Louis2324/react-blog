@@ -1,63 +1,60 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import API from "../api/Axios.jsx";
 
 const Create = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [author, setAuthor] = useState("Anonymous");
+  const [author] = useState(user?.name || "Anonymous");
+
   const [isPending, setIsPending] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const blog = { title, body, author };
-    setIsPending(true);
-    setTimeout(() => {
-      fetch("http://localhost:4000/api/blogs/", {
-        method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify(blog),
-      }).then(() => {
-        console.log("New Blog Added");
-        setIsPending(false);
-        navigate("/");
-      });
-    }, 1000);
+
+    try {
+      setIsPending(true);
+      await API.post("/blogs", blog);
+      console.log("Blog created");
+      setIsPending(false);
+      navigate("/");
+    } catch (err) {
+      console.error(
+        "Failed to create blog:",
+        err.response?.data || err.message
+      );
+      setIsPending(false);
+    }
   };
+
   return (
     <div className="create">
       <h2>Add a New Blog</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor=""> Blog title: </label>
+        <label>Blog title:</label>
         <input
           type="text"
           required
           value={title}
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
+          onChange={(e) => setTitle(e.target.value)}
         />
-        <label htmlFor=""> Blog Body: </label>
+        <label>Blog Body:</label>
         <textarea
           required
           value={body}
-          onChange={(e) => {
-            setBody(e.target.value);
-          }}
+          onChange={(e) => setBody(e.target.value)}
         ></textarea>
 
-        <label htmlFor="">Author: </label>
-        <select
-          value={author}
-          onChange={(e) => {
-            setAuthor(e.target.value);
-          }}
-        >
-          <option value="mario">mario</option>
-          <option value="luigi">luigi</option>
-        </select>
-        {!isPending && <button>Add Blog </button>}
-        {isPending && <button disabled> Adding Blog... </button>}
+        <p>
+          <strong>Author:</strong> {author}
+        </p>
+
+        {!isPending && <button>Add Blog</button>}
+        {isPending && <button disabled>Adding Blog...</button>}
       </form>
     </div>
   );

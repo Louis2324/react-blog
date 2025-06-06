@@ -1,7 +1,11 @@
 import BlogList from "./BlogList";
-import useFetch from "./useFetch";
+import useAxios from "./useAxios";
 const Home = () => {
-const {data :blogs ,isPending,error} = useFetch("http://localhost:4000/api/blogs/");
+  const {
+    data: blogs,
+    isPending,
+    error,
+  } = useAxios("/blogs/");
 
   return (
     <div className="home">
