@@ -6,6 +6,7 @@ import Create from "./components/Create.jsx";
 import BlogDetails from "./components/BlogDetails.jsx";
 import NotFound from "./components/NotFound.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import EditBlog from "./components/EditBlog.jsx";
 
 const toggleTheme = () => {
   const currentTheme = document.body.getAttribute("data-theme");
@@ -34,6 +35,12 @@ function App() {
               }
             />
             <Route exact path="/blogs/:id" element={<BlogDetails />} />
+            <Route path="/edit/:id" element={
+              <ProtectedRoute allowedRoles={["writer","admin"]}>
+                <EditBlog/>
+            </ProtectedRoute> 
+          }/>
+
             <Route exact path="/register" element={<LoginSignUp />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
