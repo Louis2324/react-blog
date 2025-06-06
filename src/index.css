@@ -65,11 +65,25 @@ body {
   gap: 1rem;
 }
 
+/* Updated Navbar Links with Hover Effect */
 .navbar a {
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   color: var(--text-color);
+  position: relative;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
 }
 
 .navbar a:hover {
@@ -77,6 +91,14 @@ body {
   background-color: var(--hover-bg);
 }
 
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* Keep existing hover background effect but make it more subtle */
+.navbar a:hover {
+  background-color: transparent;
+}
 /* Main Content */
 .content {
   max-width: 1200px;
@@ -131,7 +153,7 @@ body {
 
 .blog-details button {
   outline: none;
-  border:none;
+  border: none;
   background: var(--primary-color);
   color: white;
   border: none;
@@ -141,7 +163,7 @@ body {
   margin: 1rem;
 }
 
-.blog-details button:hover{
+.blog-details button:hover {
   box-shadow: 5px 5px 10px var(--hover-bg);
 }
 
@@ -199,6 +221,74 @@ body {
   justify-content: center;
 }
 
+/* Not Found */
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+.not-found h2 {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.not-found h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: var(--primary-color);
+  transition: width 0.5s ease;
+}
+
+.not-found h2:hover::after {
+  width: 100%;
+}
+
+.not-found p {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+.not-found small {
+  display: block;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--text-color);
+}
+
+.not-found a {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--box-shadow);
+}
+
+.not-found a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .navbar {
@@ -226,6 +316,17 @@ body {
 
   .create {
     padding: 1rem;
+  }
+  .not-found h2 {
+    font-size: 2rem;
+  }
+
+  .not-found p {
+    font-size: 1.1rem;
+  }
+
+  .not-found a {
+    padding: 0.7rem 1.5rem;
   }
 }
 
