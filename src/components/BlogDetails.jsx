@@ -39,10 +39,9 @@ const BlogDetails = () => {
             <button onClick={handleDelete}>Delete</button>
           )}
           {canDelete(blog, user) && (
-  <Link to={`/edit/${blog._id}`}>
-    <button>Edit</button>
-  </Link>
-)}
+              <Link to={`/edit/${blog._id}`}>
+               <button>Edit</button>
+              </Link>)}
         </article>
       )}
     </div>
