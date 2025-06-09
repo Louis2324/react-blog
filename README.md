@@ -1,7 +1,3 @@
-Sure! Here's a customized and polished `README.md` tailored for your **Dojo Blog MERN Stack** project, based on your current setup and goals:
-
----
-
 # Dojo Blog – MERN Stack Application
 
 This is a full-stack blog application built as an extension of [The Net Ninja's React blog tutorial](https://www.youtube.com/watch?v=U9T6YkEDkMo). It uses **React + Vite** for the frontend and **Express + MongoDB** for the backend, completing the MERN (MongoDB, Express, React, Node.js) stack.
@@ -74,7 +70,3 @@ Make sure to set up your `.env` file with the appropriate MongoDB connection str
 
 * Based on [The Net Ninja's React Blog Tutorial](https://www.youtube.com/watch?v=U9T6YkEDkMo)
 * Backend and full-stack integration by [Louis](https://github.com/Louis2324)
-
----
-
-Let me know if you’d like to add deployment instructions (e.g., for Vercel or Render) or a contributing section too.
