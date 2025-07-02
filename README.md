@@ -37,10 +37,9 @@ You can refer to the [TypeScript Vite template](https://github.com/vitejs/vite/t
 
 ## 📦 Getting Started
 
-### Frontend
+### Frontend (initial folder)
 
 ```bash
-cd client
 npm install
 npm run dev
 ```
@@ -48,7 +47,7 @@ npm run dev
 ### Backend
 
 ```bash
-cd server
+cd dojo-blog-backend
 npm install
 npm run dev
 ```
@@ -60,8 +59,8 @@ Make sure to set up your `.env` file with the appropriate MongoDB connection str
 ## 📁 Folder Structure
 
 ```
-/client     → React frontend (Vite)
-/server     → Express backend
+/     → React frontend (Vite)
+/dojo-blog-backend   → Express backend
 ```
 
 ---
