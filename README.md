@@ -1,6 +1,6 @@
 # Dojo Blog – MERN Stack Application
 
-This is a full-stack blog application built as an extension of [The Net Ninja's React blog tutorial](https://www.youtube.com/watch?v=U9T6YkEDkMo). It uses **React + Vite** for the frontend and **Express + MongoDB** for the backend, completing the MERN (MongoDB, Express, React, Node.js) stack.
+This is a full-stack blog application built as an extension of [The Net Ninja's React blog tutorial](https://www.youtube.com/watch?v=j942wKiXFu8&t=2s). It uses **React + Vite** for the frontend and **Express + MongoDB** for the backend, completing the MERN (MongoDB, Express, React, Node.js) stack.
 
 ## 🔧 Tech Stack
 
